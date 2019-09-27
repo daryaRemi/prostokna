@@ -1,4 +1,35 @@
 if($('#calc').length) {
+    var windowComponent = {
+        name: 'window',
+        props: ['window', 'current_window'],
+        template: `
+        <div>
+            <i class="material-icons" @click="removeWindow(index)">close</i>
+            <span data-El="num">{{window.material}} {{ window.title }}</span>
+            <big class="calc_result" data-El="cost">{{ window.price }}</big>
+        </div>
+    `,
+        methods: {
+            removeWindow: function (index) {
+                if (index < this.current_window) {
+                    Vue.set(this, 'current_window', (this.current_window-1))
+                    Vue.delete(this.windows, index)
+                } else if (index == this.current_window) {
+                    if (this.windows[(this.current_window-1)]) {
+                        Vue.set(this, 'current_window', (this.current_window-1))
+                        Vue.delete(this.windows, index)
+                    } else if (this.windows[(this.current_window+1)]) {
+                        Vue.delete(this.windows, index)
+                    } else {
+                        Vue.set(this, 'current_window', null)
+                        Vue.delete(this.windows, index)
+                    }
+                } else if (index > this.current_window) {
+                    Vue.delete(this.windows, index)
+                }
+            }
+        }
+    }
     var vm;
     $.ajax({
         url: "/calc_data",
@@ -6,29 +37,34 @@ if($('#calc').length) {
     }).done(function(json) {
         vm = new Vue({
             el: '#calc',
-            data: {
-                title: "Калькулятор",
-                windows: [],
-                window: {
-                    title: 'Новое окно',
-                    price: 0,
-                    material: 0,
-                    brand: 0,
-                    model: 0,
-                    glazing: 0,
-                    collection: 0,
-                    window_x: 1000,
-                    window_y: 1000,
-                    door_x: 1000,
-                    door_y: 600,
-                    opening: {
-                        window: [],
-                        door: []
-                    }
-                },
-                current_window: null,
-                calcSum: 0,
-                materials: json.materials
+            components: {
+                windowComponent
+            },
+            data: function() {
+                return {
+                    title: "Калькулятор",
+                    windows: [],
+                    window: {
+                        title: 'Новое окно',
+                        price: 0,
+                        material: 0,
+                        brand: 0,
+                        model: 0,
+                        glazing: 0,
+                        collection: 0,
+                        window_x: 1000,
+                        window_y: 1000,
+                        door_x: 1000,
+                        door_y: 600,
+                        opening: {
+                            window: [],
+                            door: []
+                        }
+                    },
+                    current_window: null,
+                    calcSum: 0,
+                    materials: json.materials
+                }
             },
             computed: {
                 currentCollections: function () {
@@ -76,26 +112,9 @@ if($('#calc').length) {
                         Vue.set(this.windows[this.current_window].opening, 'door', temp)
                     }
                 },
+
                 useWindow: function (index) {
                     Vue.set(this, 'current_window', index)
-                },
-                removeWindow: function (index) {
-                    if (index < this.current_window) {
-                        Vue.set(this, 'current_window', (this.current_window-1))
-                        Vue.delete(this.windows, index)
-                    } else if (index == this.current_window) {
-                        if (this.windows[(this.current_window-1)]) {
-                            Vue.set(this, 'current_window', (this.current_window-1))
-                            Vue.delete(this.windows, index)
-                        } else if (this.windows[(this.current_window+1)]) {
-                            Vue.delete(this.windows, index)
-                        } else {
-                            Vue.set(this, 'current_window', null)
-                            Vue.delete(this.windows, index)
-                        }
-                    } else if (index > this.current_window) {
-                        Vue.delete(this.windows, index)
-                    }
                 },
                 resetBrand: function (e) {
                     let value = parseInt(e && e.target && e.target.value ? e.target.value : 0, 10)
@@ -120,7 +139,9 @@ if($('#calc').length) {
                 resetGlazing: function (e) {
                     let value = parseInt(e && e.target && e.target.value ? e.target.value : 0, 10)
                     const brandIndex = this.windows[this.current_window].brand
-                    console.log(brandIndex)
+                    console.log(brandIndex, (this.materials[this.windows[this.current_window].material].brands)[brandIndex].title)
+                    // this.window.title = (this.materials[this.windows[this.current_window].material].brands)[brandIndex].title
+
                     Vue.set(this.windows[this.current_window], 'glazing', 0)
                     Vue.set(this.windows[this.current_window], 'model', value)
                     this.resetType()
@@ -134,7 +155,7 @@ if($('#calc').length) {
                 useCollection: function (index) {
                     Vue.set(this.windows[this.current_window], 'collection', index)
                     vm.insertOpening()
-                    this.calc()                    
+                    this.calc()
                 },
                 useType: function (index) {
                     Vue.set(this.windows[this.current_window], 'type', index)
@@ -232,7 +253,7 @@ function TriangleIterpolate (triangle, point) {
     var a = d1/d;
     var b = d2/d;
     var g = 1-a-b;
-    
+
     return ( a*z1 + b*z2 + g*z3 );
 }
 
@@ -244,4 +265,4 @@ function getDet3(matrix){
     var a32 = matrix[1][1]
     var a33 = matrix[1][2]
     return ( (a22*a33-a23*a32)-(a21*a33-a23*a31)+(a21*a32-a22*a31) )
-} 
+}

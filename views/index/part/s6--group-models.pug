@@ -2,7 +2,7 @@
 //- group-options
 .group-options(data-Module="group-models")
     h3 Производитель и модель
-    
+
     div(data-grid="inner-models-1")
         p.border-round
             label материал
@@ -10,11 +10,11 @@
                 select(
                     v-if="windows[current_window] && materials"
                     v-model="windows[current_window].material"
-                    v-on:change="resetBrand" )
+                    @change="resetBrand" )
                     option(
                         v-for="(material, index) in materials"
                         v-if="material.brands && material.brands.length"
-                        v-bind:value="index") {{ material.title }}
+                        :value="index") {{ material.title }}
         .grid-col-2
             p
                 label производитель
@@ -22,31 +22,32 @@
                     select(
                         v-if="windows[current_window] && materials[windows[current_window].material].brands"
                         v-model="windows[current_window].brand"
-                        v-on:change="resetModel" )
+                        @change="resetModel" )
                         option(
                             v-for="(brand, index) in materials[windows[current_window].material].brands"
                             v-if="brand.models && brand.models.length"
-                            v-bind:value="index" ) {{ brand.title }}
+                            :data-brand="brand.title"
+                            :value="index" ) {{ brand.title }}
             p
                 label модель
                     i.material-icons expand_more
                     select(
                         v-if="windows[current_window] && materials[windows[current_window].material].brands && materials[windows[current_window].material].brands[windows[current_window].brand].models"
                         v-model="windows[current_window].model"
-                        v-on:change="resetGlazing" )
+                        @change="resetGlazing" )
                         option(
                             v-for="(model, index) in materials[windows[current_window].material].brands[windows[current_window].brand].models"
                             v-if="model.glazings && model.glazings.length"
-                            v-bind:value="index" ) {{ model.title }}
+                            :value="index" ) {{ model.title }}
         .grid-col-2
-            //- p
+            p
                 label камерность профиля
                     i.material-icons expand_more
                     select(name="", disabled)
                         option(value="значение") 3-х камерный
                         //- option(value="значение") 3-х камерный
                         //- option(value="значение") 3-х камерный
-            //- p
+            p
                 label монтажная глубина
                     i.material-icons expand_more
                     select(name="", disabled)
@@ -61,10 +62,10 @@
                     select(
                         v-if="windows[current_window] && materials[windows[current_window].material].brands && materials[windows[current_window].material].brands[windows[current_window].brand].models && materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings"
                         v-model="windows[current_window].glazing"
-                        v-on:change="resetType" )
+                        @change="resetType" )
                         option(
                             v-for="(glazing, index) in materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings"
-                            v-bind:value="index" ) {{ glazing.title }}
+                            :value="index" ) {{ glazing.title }}
         .grid-col-2.mt50
             a(href="", role="button", data-El="open-tabs-entry").bg-btn Смотреть подробнее
             a(href="", role="button") Добавить в сравнение
@@ -87,10 +88,10 @@
                 |- Звукоизоляция класса «С»; <br>
                 |- Защита от холода, осадков и ветра группы «С»; <br>
                 |- Фурнитура Roto (Германия).
-                
+
           #tabcontainer-2.tab-pane.fade(role='tabpanel')
             h4 Характеристики
-            
+
             .container-circle
                 .c100.p70.small
                     span 70%
@@ -116,5 +117,5 @@
                       .bar
                       .fill
                     .text Цена
-            
+
 
