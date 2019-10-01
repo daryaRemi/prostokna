@@ -76,6 +76,13 @@
                                                     href="/product/" + item.sProductURI
                                                 )= item.sBrusTitle
                 .view2
+                    a.go-to-gallery(
+                        href="/gallery"
+                    )
+                        span
+                            img(
+                                src="/images/product/camera.svg"
+                            )
                     .back
                         if product.product_images[0] !== undefined
                             .bg
@@ -100,111 +107,128 @@
                                 data-fProductImagePointPosX= point.fProductImagePointPosX,
                                 data-fProductImagePointPosY= point.fProductImagePointPosY)= point.tProductImagePointMess
             .info
-                .tabs
-                    .tab-content
-                        #home1.tab-pane.fade.show.active
-                            ul.circle
-                                if product.iPrice != null
+                .tabs-wrap
+                    .tabs
+                        .tab-content
+                            #home1.tab-pane.fade.show.active
+                                ul.circle
+                                    if product.iPrice != null
+                                        li
+                                            .percent
+                                                .value
+                                                    .line1 от
+                                                    .line2 #{product.iPrice}
+                                                    .line1 РУБ
+                                                svg(viewBox="0 0 36 36", class="circular-chart-full")
+                                                    path.circle.price(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                                svg(viewBox="0 0 36 36", class="circular-chart")
+                                                    path.circle.price(stroke-dasharray=product.iProductParam6+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                            .title Цена м<sup>2</sup>
                                     li
                                         .percent
-                                            .value
-                                                .line1 от
-                                                .line2 #{product.iPrice}
-                                                .line1 РУБ
-                                            svg(viewBox="0 0 36 36", class="circular-chart-full")
-                                                path.circle.price(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                                            svg(viewBox="0 0 36 36", class="circular-chart")
-                                                path.circle.price(stroke-dasharray=product.iProductParam6+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                                        .title Цена м<sup>2</sup>
-                                li
-                                    .percent
-                                        .value= product.iProductParam1+"%"
-                                        svg(viewBox="0 0 36 36", class="circular-chart-full")
-                                            path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                                        svg(viewBox="0 0 36 36", class="circular-chart")
-                                            path.circle(stroke-dasharray=product.iProductParam1+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                                    .title Теплоизоляция
-                                li
-                                    .percent
-                                        .value= product.iProductParam2+"%"
-                                        svg(viewBox="0 0 36 36", class="circular-chart-full")
-                                            path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                                        svg(viewBox="0 0 36 36", class="circular-chart")
-                                            path.circle(stroke-dasharray=product.iProductParam2+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                                    .title Шумоизоляция
-                                li
-                                    .percent
-                                        .value= product.iProductParam3+"%"
-                                        svg(viewBox="0 0 36 36", class="circular-chart-full")
-                                            path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                                        svg(viewBox="0 0 36 36", class="circular-chart")
-                                            path.circle(stroke-dasharray=product.iProductParam3+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                                    .title Безопасность
-                                li
-                                    .percent
-                                        .value= product.iProductParam4+"%"
-                                        svg(viewBox="0 0 36 36", class="circular-chart-full")
-                                            path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                                        svg(viewBox="0 0 36 36", class="circular-chart")
-                                            path.circle(stroke-dasharray=product.iProductParam4+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                                    .title Эстетичность
-                                li
-                                    .percent
-                                        .value= product.iProductParam5+"%"
-                                        svg(viewBox="0 0 36 36", class="circular-chart-full")
-                                            path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                                        svg(viewBox="0 0 36 36", class="circular-chart")
-                                            path.circle(stroke-dasharray=product.iProductParam5+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                                    .title Экологичность
-                                if product.iPrice == null
-                                    li
-                                        .percent
-                                            .value= product.iProductParam6+"%"
+                                            .value= product.iProductParam1+"%"
                                             svg(viewBox="0 0 36 36", class="circular-chart-full")
                                                 path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
                                             svg(viewBox="0 0 36 36", class="circular-chart")
-                                                path.circle(stroke-dasharray=product.iProductParam6+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                                        .title Цена
-                        #home2.tab-pane.fade
-                            p= product.sProductDesc
-                            ul
-                                li
-                                    span Монтажная глубина: 
-                                    | #{product.MountingDepth} мм
-                                li
-                                    span Стеклопакет: 
-                                    | #{product.Profile}
-                                li
-                                    span Класс профиля: 
-                                    | #{product.ProfileClass}
-                                if product.DoubleGlazing
+                                                path.circle(stroke-dasharray=product.iProductParam1+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                        .title Теплоизоляция
                                     li
-                                        span Колличество камер: 
-                                        | #{product.DoubleGlazing}
-                                li
-                                    span Сопротивление теплопередаче: 
-                                    | #{product.HeatTransferResistance}
-                                li
-                                    span Выбор формы штапика: 
-                                    | #{product.ShapikShapeOptions}
-                                li
-                                    span Варианты декорирования: 
-                                    | #{product.DecorationOptions}
-                                li
-                                    span Особенности профиля створки: 
-                                    | #{product.FrameFeature}
-                ul.nav.nav-tabs
-                    .bg
-                    li.nav-item
-                        a#home1-tab.nav-link.nav-item-1.active(data-toggle="tab" href="#home1" aria-selected="true")
-                            img.normal(src="/images/percent.svg", alt="")
-                            img.hover(src="/images/percent_hover.svg", alt="")
-                            span Характеристики
-                    li.nav-item
-                        a#home2-tab.nav-link.nav-item-2(data-toggle="tab" href="#home2" aria-selected="true")
-                            span Описание
-                            img.normal(src="/images/list.svg", alt="")
-                            img.hover(src="/images/list_hover.svg", alt="")
+                                        .percent
+                                            .value= product.iProductParam2+"%"
+                                            svg(viewBox="0 0 36 36", class="circular-chart-full")
+                                                path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                            svg(viewBox="0 0 36 36", class="circular-chart")
+                                                path.circle(stroke-dasharray=product.iProductParam2+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                        .title Шумоизоляция
+                                    li
+                                        .percent
+                                            .value= product.iProductParam3+"%"
+                                            svg(viewBox="0 0 36 36", class="circular-chart-full")
+                                                path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                            svg(viewBox="0 0 36 36", class="circular-chart")
+                                                path.circle(stroke-dasharray=product.iProductParam3+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                        .title Безопасность
+                                    li
+                                        .percent
+                                            .value= product.iProductParam4+"%"
+                                            svg(viewBox="0 0 36 36", class="circular-chart-full")
+                                                path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                            svg(viewBox="0 0 36 36", class="circular-chart")
+                                                path.circle(stroke-dasharray=product.iProductParam4+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                        .title Эстетичность
+                                    li
+                                        .percent
+                                            .value= product.iProductParam5+"%"
+                                            svg(viewBox="0 0 36 36", class="circular-chart-full")
+                                                path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                            svg(viewBox="0 0 36 36", class="circular-chart")
+                                                path.circle(stroke-dasharray=product.iProductParam5+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                        .title Экологичность
+                                    if product.iPrice == null
+                                        li
+                                            .percent
+                                                .value= product.iProductParam6+"%"
+                                                svg(viewBox="0 0 36 36", class="circular-chart-full")
+                                                    path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                                svg(viewBox="0 0 36 36", class="circular-chart")
+                                                    path.circle(stroke-dasharray=product.iProductParam6+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                            .title Цена
+                            #home2.tab-pane.fade
+                                p= product.sProductDesc
+                                ul
+                                    li
+                                        span Монтажная глубина:
+                                        |  #{product.MountingDepth} мм
+                                    li
+                                        span Стеклопакет:
+                                        |  #{product.Profile}
+                                    li
+                                        span Класс профиля:
+                                        |  #{product.ProfileClass}
+                                    if product.DoubleGlazing
+                                        li
+                                            span Колличество камер:
+                                            |  #{product.DoubleGlazing}
+                                    li
+                                        span Сопротивление теплопередаче:
+                                        |  #{product.HeatTransferResistance}
+                                    li
+                                        span Выбор формы штапика:
+                                        |  #{product.ShapikShapeOptions}
+                                    li
+                                        span Варианты декорирования:
+                                        |  #{product.DecorationOptions}
+                                    li
+                                        span Особенности профиля створки:
+                                        |  #{product.FrameFeature}
+                    ul.nav.nav-tabs
+                        .bg
+                        li.nav-item
+                            a#home1-tab.nav-link.nav-item-1.active(data-toggle="tab" href="#home1" aria-selected="true")
+                                img.normal(src="/images/percent.svg", alt="")
+                                img.hover(src="/images/percent_hover.svg", alt="")
+                                span Характеристики
+                        li.nav-item
+                            a#home2-tab.nav-link.nav-item-2(data-toggle="tab" href="#home2" aria-selected="true")
+                                span Описание
+                                img.normal(src="/images/list.svg", alt="")
+                                img.hover(src="/images/list_hover.svg", alt="")
+                div.btn-wrap
+                    div.link-wrap
+                        a(
+                        href="#"
+                        )
+                            span
+                                img.normal._left(src="/images/link-brand.svg", alt="")
+                                img.hover._left(src="/images/link-brand_hover.svg", alt="")
+                                span О бренде
+                        a(
+                            href="#"
+                        )
+                            span.link-instalment-plan
+                                span Рассрочка
+                                img.normal._right(src="/images/percent.svg", alt="")
+                                img.hover._right(src="/images/percent_hover.svg", alt="")
                 .buttons
                     button.calculate(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
                     button.favorite
@@ -241,12 +265,12 @@
                             .colorDesc
                                 span.sColorTitle
                                 span.sColorTitleCode
-                    button(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
+                    button.calculate(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
                 .view
         .desc
             each image in product.product_images
                 if image.iPhotoInDescOnPage == 1
-                    img(src="/images/product/gallery/" + image.sProductImageFrontName, alt="")
+                    img.desc-img(src="/images/product/gallery/" + image.sProductImageFrontName, alt="")
             h1 #{product.brand.sBrandTitle} #{product.sProductTitle}
                 .small
                     if product.iGenerateUriBrus
@@ -256,4 +280,20 @@
                     else
                         span #{product.material.sMaterialTitle}
             .text!= product.sProductText
-            button(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
+            .buttons-wrap
+                div.link-wrap
+                    a(
+                        href="#"
+                    )
+                        span
+                            img.normal._left(src="/images/link_garant.svg", alt="")
+                            img.hover._left(src="/images/link_garant_hover.svg", alt="")
+                            span О гарантии
+                    a(
+                        href="#"
+                    )
+                        span.link-instalment-plan
+                            span О монтаже
+                            img.normal._right(src="/images/link-mont.svg", alt="")
+                            img.hover._right(src="/images/link-mont_hover.svg", alt="")
+                button.calculate(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
