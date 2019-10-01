@@ -38,7 +38,7 @@ $text: #353535;
 			transform: translateY(-50%);
 			display: flex;
 			flex-direction: column;
-			background: rgba(67, 67, 67, 0.92);	
+			background: rgba(67, 67, 67, 0.92);
 			border-radius: 6px;
 			@media screen and (max-width: 992px){
 				flex-direction: row;
@@ -48,7 +48,7 @@ $text: #353535;
 
 			}
 			@media screen and (max-width: 768px){
-				
+
 			}
 			&_content {
 				position: relative;
@@ -85,12 +85,12 @@ $text: #353535;
 							transform: translate(100%,0);
 						}
 					}
-					&.active {						
-						&:before {							
+					&.active {
+						&:before {
 							transform: translate(0,0);
 							@media screen and (max-width: 992px){
 				        transform: translate(0,0);
-			        }				
+			        }
 						}
 					}
 				}
@@ -102,10 +102,10 @@ $text: #353535;
 					path {
 						opacity: 1;
 					}
-				}				
-			}		
-		}		
-		&__wrapp {			
+				}
+			}
+		}
+		&__wrapp {
 			width: 90%;
 			margin: 0 auto;
 			display: none;
@@ -121,13 +121,13 @@ $text: #353535;
 			}
 			&.active {
 				display: flex;
-				animation: op 1s;	
+				animation: op 1s;
 			}
 			@media screen and (max-width: 992px){
 				flex-direction: column;
 				align-items: center;
 				height: auto;
-			}			
+			}
 		}
 		&__block {
 			flex-basis: 30%;
@@ -142,7 +142,7 @@ $text: #353535;
 		// DESCRIPTION SECTION
 		&__more {
 			overflow: auto;
-			height: 100%;		
+			height: 100%;
 			@media screen and (max-width: 992px){
 				display: none;
 				position: absolute;
@@ -158,10 +158,10 @@ $text: #353535;
 			}
 			@media screen and (max-width: 768px){
 				padding: 40px;
-			}	
+			}
 			@media screen and (max-width: 576px){
 				padding: 20px;
-			}	
+			}
 		}
 		&__desc {
 			margin-top: 40px;
@@ -197,7 +197,7 @@ $text: #353535;
 					text-align: center;
 					color: #fff;
 					font-size: 25px;
-				}				
+				}
 			}
 			&.active {
 				width: 32px;
@@ -210,12 +210,12 @@ $text: #353535;
 						margin-top: -1px;
 						margin-left: -1px;
 						animation: op .3s;
-					}				
+					}
 				}
 			}
 		}
 		&__text {
-			font-size: 14px;			
+			font-size: 14px;
 			margin-bottom: 25px;
 			padding-right: 20px;
 			&:last-child {
@@ -235,13 +235,13 @@ $text: #353535;
 				padding-right: 0;
 			}
 		}
-		.fixed {					
-			&::-webkit-scrollbar { 
+		.fixed {
+			&::-webkit-scrollbar {
 				width: 3px;
 			}
-			&::-webkit-scrollbar-track {					
+			&::-webkit-scrollbar-track {
 					border-radius: 3px;
-					background: #aaa;					
+					background: #aaa;
 			}
 			/* Handle */
 			&::-webkit-scrollbar-thumb {
@@ -251,18 +251,18 @@ $text: #353535;
 			/* Handle on hover */
 			&::-webkit-scrollbar-thumb:hover {
 					background: darken(#404040, 10%);
-			}							
+			}
 		}
 
 		// IMAGE SECTION
 
 		&__img {
-			position: relative;	
-			.num {							
+			position: relative;
+			.num {
 				&__item {
 					position: absolute;
 					width: 54px;
-					height: 54px;					
+					height: 54px;
 					border-radius: 15px;
 					display: flex;
 					align-items: center;
@@ -273,7 +273,7 @@ $text: #353535;
 					color: #fff;
 					transition: .3s;
 					z-index: 2;
-					box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.57);							
+					box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.57);
 					@media screen and (max-width: 1400px){
 						width: 44px;
 						height: 44px;
@@ -293,16 +293,16 @@ $text: #353535;
 						background: $accent;
 						color: #fff;
 					}
-					&:hover {						
+					&:hover {
 						@media screen and (min-width: 992px){
 							background-color: $accent;
 							color: #fff;
-						}												
+						}
 					}
 				}
-			}			
+			}
 			&.window {
-				align-self: center;				
+				align-self: center;
 				@media screen and (max-width: 992px){
 					width: 60%;
 					max-width: 415.25px;
@@ -375,9 +375,9 @@ $text: #353535;
 					}
 				}
 				.text {
-					&__item {						
+					&__item {
 						top: 53%;
-						left: 11%;						
+						left: 11%;
 						&:nth-child(1) {
 							left: 14.5%;
               top: 28%;
@@ -437,7 +437,7 @@ $text: #353535;
 					position: absolute;
 					top: 0;
 					left: 0;
-					z-index: 100;
+					z-index: 2;
 					opacity: 1;
 					transition: opacity .25s;
 					@media screen and (max-width: 992px){
@@ -470,15 +470,15 @@ $text: #353535;
 						text-transform: uppercase;
 						color: #fff;
 						font-size: 13px;
-						transition: width .25s;	
-						box-shadow: 6px 3px 6px rgba(0, 0, 0, 0.16);	
+						transition: width .25s;
+						box-shadow: 6px 3px 6px rgba(0, 0, 0, 0.16);
 						@media screen and (max-width: 992px){
 							width: 200px;
 							font-size: 11px;
-						}			
+						}
 						@media screen and (max-width: 576px){
 							height: 50px;
-						}			
+						}
 						img {
 							width: 22px;
 							position: absolute;
@@ -494,7 +494,7 @@ $text: #353535;
 								display: block;
 								animation: op .25s;
 							}
-						}								
+						}
 					}
 					.button-show {
 						box-sizing: border-box;
@@ -524,7 +524,7 @@ $text: #353535;
 					}
 					.button-download {
 						a {
-							display: flex;							
+							display: flex;
 							align-items: center;
 							justify-content: center;
 							width: 100%;
@@ -560,10 +560,10 @@ $text: #353535;
 				}
 			}
 			&.balcony {
-				align-self: center;		
+				align-self: center;
 				@media screen and (max-width: 992px){
 					width: 70%;
-					margin-top: 20px;
+					margin-top: 50px;
 					align-self: auto;
 					margin-bottom: 70px;
 				}
@@ -617,27 +617,27 @@ $text: #353535;
             }
 					}
 				}
-				.text {			
-					&__item {						
+				.text {
+					&__item {
 						&:nth-child(1) {
 							left: 12%;
               top: 8.1%;
-						}			
+						}
 						&:nth-child(2) {
 							left: -5%;
               top: 13.5%;
-						}			
+						}
 						&:nth-child(3) {
 							left: 20%;
     					top: 42.1%;
-						}			
+						}
 					}
 				}
 				.button-list {
 					position: absolute;
 					top: 10%;
 					left: -20px;
-					z-index: 100;
+					z-index: 2;
 					opacity: 1;
 					transition: opacity .25s;
 					@media screen and (max-width: 992px){
@@ -670,15 +670,15 @@ $text: #353535;
 						text-transform: uppercase;
 						color: #fff;
 						font-size: 13px;
-						transition: width .25s;	
-						box-shadow: 6px 3px 6px rgba(0, 0, 0, 0.16);	
+						transition: width .25s;
+						box-shadow: 6px 3px 6px rgba(0, 0, 0, 0.16);
 						@media screen and (max-width: 992px){
 							width: 200px;
 							font-size: 11px;
-						}			
+						}
 						@media screen and (max-width: 576px){
 							height: 50px;
-						}			
+						}
 						img {
 							width: 22px;
 							position: absolute;
@@ -694,7 +694,7 @@ $text: #353535;
 								display: block;
 								animation: op .25s;
 							}
-						}								
+						}
 					}
 					.button-show {
 						box-sizing: border-box;
@@ -724,7 +724,7 @@ $text: #353535;
 					}
 					.button-download {
 						a {
-							display: flex;							
+							display: flex;
 							align-items: center;
 							justify-content: center;
 							width: 100%;
@@ -759,7 +759,7 @@ $text: #353535;
 					}
 				}
 			}
-			.text {	
+			.text {
 				&__item {
 					opacity: 0;
 					position: absolute;
@@ -786,15 +786,12 @@ $text: #353535;
 						font-size: 12px;
 						padding: 13px 0;
 					}
-					@media screen and (max-width: 576px){
-						font-size: 10px;
-					}
-					&.active {						
+					&.active {
 						// transition-delay: 0.7s;
 						opacity: 1;
-					}				
+					}
 				}
-			}	
+			}
 			img {
 				width: 100%;
 				object-fit: contain;
@@ -844,12 +841,12 @@ $text: #353535;
 			}
 			.acc__content {
 				display: none;
-				padding: 0 0 25px 70px;				
+				padding: 0 0 25px 70px;
 				@media screen and (max-width: 1400px){
 					padding: 0 0 25px 35px;
 				}
 				.text {
-					font-size: 12px;
+					font-size: 14px;
 					margin-bottom: 25px;
 					&:last-of-type {
 						margin-bottom: 0;
@@ -873,7 +870,7 @@ $text: #353535;
 			opacity: 1;
 			stroke-width:2;
 		}
-		
+
 	}
 	.left {
 		&.active {
@@ -904,7 +901,7 @@ $text: #353535;
 			stroke-width: 3px;
 			stroke: $text;
 		}
-	}	
+	}
 	.under {
 		transition:opacity 0.3s 0.7s;
 	}
@@ -915,25 +912,25 @@ $text: #353535;
 		}
 	}
 	.dn1 {
-		transition:opacity 0.3s 0.7s;	
+		transition:opacity 0.3s 0.7s;
 		&.active {
 			transition-delay: 0.1s;
 			opacity: 0;
 		}
 	}
 	.dn12 {
-		transition:opacity 0.3s 0.7s;	
+		transition:opacity 0.3s 0.7s;
 		&.active {
 			transition-delay: 0.1s;
 			opacity: 0;
 		}
-	}	
+	}
 	.op3 {
 		transition-delay: 0.1s;
 		opacity: 0.3;
 	}
 	.dn2 {
-		transition:opacity 0.3s 0.7s;	
+		transition:opacity 0.3s 0.7s;
 		&.active {
 			transition-delay: 0.1s;
 			opacity: 0;
@@ -992,7 +989,7 @@ $text: #353535;
 			stroke-dashoffset: -38.3%;
 		}
 	}
-	.dashdot {		
+	.dashdot {
 		transition: 0.3s;
 		&.active {
 			line {

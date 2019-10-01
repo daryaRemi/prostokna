@@ -7,12 +7,12 @@ $dark: rgba(#000, 0.74);
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		padding-bottom: 3%;	
+		padding-bottom: 3%;
 		@media screen and (max-width: 992px) {
-			justify-content: flex-start;			
+			justify-content: flex-start;
 		}
 		@media screen and (max-width: 576px) and (min-height: 730px) {
-			justify-content: center;			
+			justify-content: center;
 		}
 		&__title {
 			font-size: 17px;
@@ -26,7 +26,7 @@ $dark: rgba(#000, 0.74);
 			justify-content: center;
 			@media screen and (max-width: 576px){
 				margin-top: 5%;
-				flex-basis: 20px;	
+				flex-basis: 20px;
 			}
 		}
 }
@@ -46,28 +46,28 @@ $dark: rgba(#000, 0.74);
 		flex-basis: 100px;
 	}
 	@media screen and (max-width: 992px) {
-		margin-top: 35px;		
-		padding: 0 10%;	
-	}	
+		margin-top: 35px;
+		padding: 0 10%;
+	}
 	@media screen and (max-width: 359px) {
-		padding: 0;	
-	}	
+		padding: 0;
+	}
 }
 
-.calc__item {	
+.calc__item {
 	width: 33.3%;
 	z-index: 1;
 	cursor: pointer;height: 130px;
 	display: flex;
 	align-items: center;
 	@media screen and (max-width: 992px) {
-		width: 40px;			
+		width: 40px;
 	}
 	@media screen and (max-width: 576px) {
-		height: auto;			
+		height: auto;
 	}
 	&:hover {
-		.num-wrapp {			
+		.num-wrapp {
 			box-shadow: 0 0 0 3px #424242,
 									0 0 0 4px #fff;
 			&:before {
@@ -88,12 +88,12 @@ $dark: rgba(#000, 0.74);
 				box-shadow: 0 0 0 3px #424242,
 										0 0 0 4px #707070;
 			}
-		}			
+		}
 	}
 	.num-wrapp  {
 		position: absolute;
 		top: 0;
-		transform: translateY(-50%);		
+		transform: translateY(-50%);
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -113,8 +113,8 @@ $dark: rgba(#000, 0.74);
 			margin-left: 20px;
 		}
 		@media screen and (max-width: 992px) {
-			margin-left: 0;			
-		}		
+			margin-left: 0;
+		}
 		&:before {
 			content: '';
 			display: block;
@@ -145,9 +145,9 @@ $dark: rgba(#000, 0.74);
 			display: none;
 
 		}
-	}	
-	&.active {		
-		.num-wrapp {			
+	}
+	&.active {
+		.num-wrapp {
 			box-shadow: 0 0 0 3px #424242,
 									0 0 0 4px #fff;
 			&:before {
@@ -178,7 +178,7 @@ $dark: rgba(#000, 0.74);
 				font-size: 12px;
 			}
 
-		}				
+		}
 	}
 }
 
@@ -188,10 +188,10 @@ $dark: rgba(#000, 0.74);
 	margin: 0 auto;
 	margin-top: 40px;
 	display: flex;
-	justify-content: center;	
-	&::-webkit-scrollbar { 
+	justify-content: center;
+	&::-webkit-scrollbar {
 		width: 0;
-	}		
+	}
 	@media screen and (max-width: 576px) {
 		margin-top: 30px;
 		height: 350px;
@@ -224,11 +224,11 @@ $dark: rgba(#000, 0.74);
 			padding-left: 0;
 		}
 		@media screen and (max-width: 576px) and (min-height: 730px) {
-			min-height: 440px;			
+			min-height: 440px;
 		}
 		&:nth-child(2) {
 			padding-left: 0;
-		}		
+		}
 		@media screen and (max-width: 992px) {
 			display: none;
 		}
@@ -247,7 +247,7 @@ $dark: rgba(#000, 0.74);
 				padding-top: 18px;
 			}
 			&__wrapp {
-				position: relative;				
+				position: relative;
 			}
 			&__label {
 				position: absolute;
@@ -278,7 +278,7 @@ $dark: rgba(#000, 0.74);
 					&+.calc-form__label {
 						transform: translateY(-150%);
 					}
-				}				
+				}
 			}
 			.file-wrap {
 				position: relative;
@@ -353,8 +353,9 @@ $dark: rgba(#000, 0.74);
 				border: none;
 				border-radius: 70px;
 				width: 50%;
-				padding: 8px 0;
-				font-size: 11px;
+				height: 44px;
+				line-height: 44px;
+				font-size: 12px;
 				text-transform: uppercase;
 				font-family: 'MontserratSemiBold';
 				color: #fff;
@@ -402,7 +403,7 @@ $dark: rgba(#000, 0.74);
 					left: -40px;
 					path,rect {
 						transition: fill .3s;
-					}					
+					}
 				}
 				.time__title {
 					color: #fff;
@@ -418,7 +419,7 @@ $dark: rgba(#000, 0.74);
 				}
 				.time__text {
 					color: #fff;
-					font-size: 13px;
+					font-size: 14px;
 					font-family: 'MontserratMedium';
 					@media screen and (max-width: 576px) {
 						font-size: 11px;
@@ -466,17 +467,18 @@ $dark: rgba(#000, 0.74);
 				padding: 10px;
 			}
 			.payment__text {
-				font-size: 12px;
-				color: #fff;				
+				font-size: 14px;
+				color: #fff;
 			}
 			.payment__desc {
 				display: block;
 				width: 50%;
 				text-transform: uppercase;
-				font-size: 11px;
+				font-size: 12px;
 				border-radius: 70px;
 				color: #fff;
-				padding: 8px 0;
+				height: 44px;
+				line-height: 44px;
 				background: rgba(155,71,229,1);
 				background: -moz-linear-gradient(left, rgba(155,71,229,1) 0%, rgba(228,90,233,1) 100%);
 				background: -webkit-gradient(left top, right top, color-stop(0%, rgba(155,71,229,1)), color-stop(100%, rgba(228,90,233,1)));
