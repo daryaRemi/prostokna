@@ -16,7 +16,7 @@ block content
                     .col-lg-12.text-center.pre-title-star
                         img(src='/images/best-cost/star-white.png')
                     .col-lg-8.pre-title-best-cost.text-center#pre-title.popup
-                        button.button-close 
+                        button.button-close
                             img(src='/images/best-cost/cross.png').cross
                         p Если вы, дорогие покупатели, найдете цену на окна ниже, чем у нас, мы гарантированно сделаем вам еще более выгодное предложение. Мы настолько уверены в наших низких ценах, что готовы сделать ваш заказ еще более выгодным.
                         p Все очень просто! Если вы нашли цену ниже нашей, оставляете заявку на занижение цены. В течение 30 минут наш менеджер свяжется с вами, чтобы предложить лучшую цену! И это ощутимая разница.
@@ -58,12 +58,22 @@ block content
                         a.make-sale() СДЕЛАТЬ ДЕШЕВЛЕ
                     .col-lg-12.text-center.form-container#form-target.popup
                         form(action="", method="post").form-panel
-                            input#name(type="text", name="name", placeholder='Ваше имя *' required)
-                            input#tel(type="tel", name="tel" placeholder='Телефон для связи *' required)
-                            input#mark(type="text", name="mark" placeholder='Марка оконных конструкция *' required)
-                            input#sait(type="text" name="sait" placeholder='Адрес сайта, оконной компании *' required)
-                            input#traid(type="text" name="traid" placeholder='Коммерческое предложение другой компании с ценами *')
-                            input#traid-file(type="file" name="traid" required)
+                            .input-wrapp
+                                input#name.gager-input(type="text" name="name" tabindex="1" required)
+                                label(for="name") Ваше имя
+                            .input-wrapp
+                                input#phone.gager-input(type="phone" name="phone" tabindex="3" required)
+                                label(for="phone") Телефон для связи
+                            .input-wrapp
+                                input#mark.gager-input(type="phone" name="phone" tabindex="3" required)
+                                label(for="phone") Марка оконных конструкций
+                            .input-wrapp
+                                input#sait.gager-input(type="phone" name="phone" tabindex="3" required)
+                                label(for="phone") Адрес сайта, оконной компании
+                            .input-wrapp
+                                input#traid.gager-input(type="phone" name="phone" tabindex="3" required)
+                                label(for="phone") Коммерческое предложение другой компании с ценами
+                                input#traid-file(type="file" name="traid" required)
                             button(type="submit").button-go ОТПРАВИТЬ
             .container-fluid.my-tablet-cost
                 .row
@@ -73,10 +83,20 @@ block content
                 .row.background-form
                     .col-lg-12.text-center
                         form(action="", method="post").form-panel
-                            input#name(type="text", name="name", placeholder='Ваше имя *' required)
-                            input#tel(type="tel", name="tel" placeholder='Телефон для связи *' required)
-                            input#mark(type="text", name="mark" placeholder='Марка оконных конструкция *' required)
-                            input#sait(type="text" name="sait" placeholder='Адрес сайта, оконной компании *' required)
-                            input#traid(type="text" name="traid" placeholder='Коммерческое предложение другой компании с ценами на окна *')
-                            input#traid-file(type="file" name="traid" required)
+                            .input-wrapp
+                                input#name.gager-input(type="text" name="name" tabindex="1" required)
+                                label(for="name") Ваше имя
+                            .input-wrapp
+                                input#phone.gager-input(type="phone" name="phone" tabindex="3" required)
+                                label(for="phone") Телефон для связи
+                            .input-wrapp
+                                input#mark.gager-input(type="phone" name="phone" tabindex="3" required)
+                                label(for="phone") Марка оконных конструкций
+                            .input-wrapp
+                                input#sait.gager-input(type="phone" name="phone" tabindex="3" required)
+                                label(for="phone") Адрес сайта, оконной компании
+                            .input-wrapp
+                                input#traid.gager-input(type="phone" name="phone" tabindex="3" required)
+                                label(for="phone") Коммерческое предложение другой компании с ценами
+                                input#traid-file(type="file" name="traid" required)
                             button(type="submit").button-go ОТПРАВИТЬ
